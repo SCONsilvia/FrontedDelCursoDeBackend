@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './components/Header/Header';
+import Productos from './components/Productos/Productos';
+import Historial from './components/Historial/Historial';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-function App() {
+function App() { 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>{/* todos estos componente de adentro tienen acceso a las url */}
+        <Header/>
+        {/* Componente que depende de la ruta el header no depende de la ruta pues se muestra siempre asi que no va dentro */}
+        <Routes>
+          <Route path="/" element={<Productos/>}/>
+          <Route path="/historial" element={<Historial/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

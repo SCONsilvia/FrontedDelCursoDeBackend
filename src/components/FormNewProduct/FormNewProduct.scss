@@ -1,0 +1,27 @@
+/*css Formulario*/
+.sectionForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.form{
+    border: 1px solid black;
+    width: 300px;
+}
+
+.form__ul{
+    padding: 12px;
+}
+
+.form__ul__li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form__button{
+    display: flex;
+    margin: 10px auto;
+}
