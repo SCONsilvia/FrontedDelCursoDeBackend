@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 
 export const WebsocketContext = createContext();
 
-const socket = io("ws://localhost:8080", {
+const socket = io("ws://materialistic-tender-agreement.glitch.me/", {
   transports: ["websocket"] // use webSocket only
 });
 
