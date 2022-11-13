@@ -10,7 +10,6 @@ const ForChat = () => {
     useEffect(()=>{
         const cajaMensaje = mensajeRef.current;
         let presionado=false; 
-
         cajaMensaje.addEventListener("keydown", function(e){
             if(e.code === "ControlLeft"){
                 presionado=true
