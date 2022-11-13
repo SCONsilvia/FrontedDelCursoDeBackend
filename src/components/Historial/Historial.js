@@ -6,7 +6,7 @@ const Historial = () => {
     return(
         <section>
             <h1>Historial</h1>
-            <ProductsList Componente={Product}/>
+            <ProductsList Componente={Product} nombreDelCOmponente = "ProductListDinamico"/>
         </section>
 
     )

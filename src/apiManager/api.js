@@ -37,3 +37,17 @@ export const postProducto = (producto) => {
         })
     )
 }
+
+export const allChat = () => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/chat`,headers())
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}

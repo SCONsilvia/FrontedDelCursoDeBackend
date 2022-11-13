@@ -1,7 +1,9 @@
 import "./FormNewProduct.scss"
-import { postProducto } from "../../apiManager/api";
+import { WebsocketContext } from "../../context/WebsocketContext";
+import { useContext } from "react";
 
 const FormNewProduct = () => {
+    const {crearNuevoProducto} = useContext(WebsocketContext);
     const handlerSubmit = (e) => {
         e.preventDefault();
         const datosDelNuevoProducto = {
@@ -12,13 +14,19 @@ const FormNewProduct = () => {
             codigo : document.getElementById("codigo").value,
             stock : document.getElementById("stock").value,
         }
-        postProducto(datosDelNuevoProducto)
-        console.log(datosDelNuevoProducto);
+        crearNuevoProducto(datosDelNuevoProducto);
+
+        document.getElementById("titulo").value = "";
+        document.getElementById("precio").value = "";
+        document.getElementById("img").value = "";
+        document.getElementById("descripcion").value = "";
+        document.getElementById("codigo").value = "";
+        document.getElementById("stock").value = "";
     }
     return(
         <section className="sectionForm">
             <h2 className="titleH1">Agregar producto</h2>
-            <form className="form" id="formulario">
+            <form className="form" id="formulario" onSubmit={handlerSubmit}>
                 <ul className="form__ul">
                     <li className="form__ul__li">
                         <label className="form__ul__li__label" htmlFor="titulo">Titulo:</label>
@@ -45,7 +53,7 @@ const FormNewProduct = () => {
                         <input className="form__ul__li__input" type="number" id="stock" name="stock" required/>
                     </li>
                 </ul>
-                <button className="form__button" onClick={handlerSubmit}>Enviar</button>
+                <input type="submit"/>
             </form>
         </section>
     )

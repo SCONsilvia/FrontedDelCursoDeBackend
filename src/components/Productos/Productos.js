@@ -1,16 +1,19 @@
 import "./Productos.scss"
 import ProductoTabla from "../ProductosTabla/ProductosTabla";
 import FormNewProduct from "../FormNewProduct/FormNewProduct";
-import Websocket from "../Websocket/Websocket";
+import { WebsocketContextProvide } from "../../context/WebsocketContext";
+import Chat from "../Chat/Chat";
 
 
 const Productos = () => {
     return(
         <>
             <h1>Producs</h1>
-            <Websocket/>
-            <FormNewProduct/>
-            <ProductoTabla/>
+            <WebsocketContextProvide>
+                <FormNewProduct/>
+                <ProductoTabla/>
+                <Chat/>
+            </WebsocketContextProvide>
         </>
     )
 }

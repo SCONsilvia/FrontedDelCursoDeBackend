@@ -7,8 +7,8 @@ const Navbar = () =>{
     return(
         <nav className = "navbar">
             <ul className = "navbar__lista">
-                <Link to="/Historial"><Button handleClick={()=>console.log("giste")}>Historial</Button></Link>
-                <Link to="/"><Button handleClick={()=>console.log("bisee")}>Productos</Button></Link>
+                <Link to="/Historial"><Button>Historial</Button></Link>
+                <Link to="/"><Button >Productos</Button></Link>
             </ul>
         </nav>
     )
