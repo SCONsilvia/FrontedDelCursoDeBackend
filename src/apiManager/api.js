@@ -8,7 +8,7 @@ const headers = (method="GET",body=undefined,contentType='application/json')=>{
     }
 }
 
-const server = "http://localhost:8080"
+const server = "https://materialistic-tender-agreement.glitch.me/"
 
 export const allProducts = () => {
     const resp = {data:0,error:null,status:false}
