@@ -8,7 +8,7 @@ const headers = (method="GET",body=undefined,contentType='application/json')=>{
     }
 }
 
-const server = "https://materialistic-tender-agreement.glitch.me/"
+const server = "https://petalite-lava-farmer.glitch.me/"
 
 export const allProducts = () => {
     const resp = {data:0,error:null,status:false}
