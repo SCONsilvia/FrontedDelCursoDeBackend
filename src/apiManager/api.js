@@ -8,7 +8,9 @@ const headers = (method="GET",body=undefined,contentType='application/json')=>{
     }
 }
 
-const server = "https://petalite-lava-farmer.glitch.me/"
+//http://localhost:8080
+//https://fantastic-paint-airport.glitch.me/
+const server = "https://fantastic-paint-airport.glitch.me/"
 
 export const allProducts = () => {
     const resp = {data:0,error:null,status:false}

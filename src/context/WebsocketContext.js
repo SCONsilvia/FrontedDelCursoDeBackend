@@ -4,7 +4,9 @@ import io from 'socket.io-client';
 
 export const WebsocketContext = createContext();
 
-const socket = io("wss://petalite-lava-farmer.glitch.me/", {//para que funcione en localhost "ws://localhost:8080" y en servidor real "wss://materialistic-tender-agreement.glitch.me/"
+//ws://localhost:8080
+//wss://fantastic-paint-airport.glitch.me/
+const socket = io("wss://fantastic-paint-airport.glitch.me/", {//para que funcione en localhost "ws://localhost:8080" y en servidor real "wss://materialistic-tender-agreement.glitch.me/"
   transports: ["websocket"] // use webSocket only
 });
 
