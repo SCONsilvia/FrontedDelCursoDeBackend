@@ -1,7 +1,8 @@
-import './App.scss';
-import Header from './components/Header/Header';
-import Productos from './components/Productos/Productos';
-import Historial from './components/Historial/Historial';
+import Header from './components/Header';
+import Productos from './components/Productos';
+import Historial from './components/Historial';
+import InicioDeSesion from './components/InicioDeSesion'
+import UserData from './components/UserData'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() { 
@@ -13,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Productos/>}/>
           <Route path="/historial" element={<Historial/>}/>
+          <Route path="/inicioDeSesion" element={<InicioDeSesion/>}/>
+          <Route path="/User" element={<UserData/>}/>
         </Routes>
       </BrowserRouter>
     </div>
