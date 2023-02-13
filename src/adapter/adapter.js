@@ -45,3 +45,22 @@ export const createAdaptedChatList = (obj) => {
 export const createAdaptedChatArr = (obj) => {
     return obj.map(item =>createAdaptedChatFromApi(item));
 }
+
+export const createAdaptedUserFromApi = (obj) => {
+
+    const userAdapted = {
+        nombre: obj.nombre,
+        email : obj.email,
+        imagen : obj.foto,
+        direccion: obj.direccion,
+        numeroDeTelefono : obj.numero,
+        edad : obj.edad,
+        admin : obj.admin,
+    }
+
+    return userAdapted;
+}
+
+export const createAdaptedUser = (obj) => {
+    return createAdaptedUserFromApi(obj);
+}

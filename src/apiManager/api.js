@@ -83,6 +83,7 @@ export const infoDeInicioDeSesion = () => {
                 return resp
             }
             resp.status=true
+            console.log(resp);
             return resp
         }).catch(error => {
             resp.error=error
