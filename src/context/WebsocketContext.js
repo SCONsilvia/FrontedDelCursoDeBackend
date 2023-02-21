@@ -6,7 +6,7 @@ export const WebsocketContext = createContext();
 
 //ws://localhost:8080
 //wss://fantastic-paint-airport.glitch.me/
-const socket = io("wss://fantastic-paint-airport.glitch.me/", {//para que funcione en localhost "ws://localhost:8080" y en servidor real "wss://materialistic-tender-agreement.glitch.me/"
+const socket = io("ws://localhost:8080", {//para que funcione en localhost "ws://localhost:8080" y en servidor real "wss://materialistic-tender-agreement.glitch.me/"
   transports: ["websocket"] // use webSocket only
 });
 

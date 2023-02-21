@@ -9,6 +9,7 @@ const Navbar = () =>{
                 <Link to="/Historial"><Button>Historial</Button></Link>
                 <Link to="/"><Button >Productos</Button></Link>
                 <Link to="/inicioDeSesion"><Button >Iniciar Session</Button></Link>
+                <Link to="/User"><Button >Perfil</Button></Link>
             </ul>
         </nav>
     )

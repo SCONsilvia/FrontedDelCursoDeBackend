@@ -1,7 +1,7 @@
 export const createAdaptedProductFromApi = (obj) => {
 
     const productAdapted = {
-        id: obj.id,
+        id: obj._id,
         name : obj.nombre,
         img : obj.foto,
         price: obj.precio,
