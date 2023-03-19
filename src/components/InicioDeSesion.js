@@ -13,11 +13,7 @@ const InicioDeSesion = () => {
         const resultado = await InicioDeSesionback(datosUser)
 
         if (resultado.status === true){
-            console.log(resultado)
-            console.log("fsdhfdsghffhdsgdfhjgdshgjfsd")
             navigate("/User");
-        }else{
-            console.log(resultado);
         }
         document.getElementById("nombre").value = "";
         document.getElementById("contrasena").value = "";

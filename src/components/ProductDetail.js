@@ -1,7 +1,6 @@
 import ItemCount from "./Contador";
 
 const productDetail = ({name, img, id, stock}) => {
-    console.log(id);
     return(
         <article>
             <h1>{name}</h1>

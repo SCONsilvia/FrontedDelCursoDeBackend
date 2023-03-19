@@ -37,11 +37,9 @@ const ForChat = () => {
     const handlerSubmit = async (e) => {
         e.preventDefault();
         const respuesta = await infoDeInicioDeSesion();
-        console.log(respuesta);
         if (respuesta.status == false) {
             alert("Tenes que loguearte antes")
         }else{
-            console.log(respuesta.data.session);
             const datosDelNuevoProducto = {
                 user:{
                     email: respuesta.data.session.email,
@@ -51,7 +49,6 @@ const ForChat = () => {
                 timestamps: new Date()
             }
             mandarMensaje(datosDelNuevoProducto);
-            console.log(datosDelNuevoProducto);
     
             document.getElementById("mensaje").value = "";
         }

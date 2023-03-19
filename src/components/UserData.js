@@ -10,13 +10,7 @@ const UserData = () => {
         const funcion = async () => {
             const respuesta = await infoDeInicioDeSesion();
             if (respuesta.status){
-                /* console.log(respuesta.data.dataUser); */
                 const respuestaAdaptada = createAdaptedUser(respuesta.data.dataUser);
-                /* console.log(respuestaAdaptada);
-                console.log("aca");
-                setR(respuesta.data.session.email)
-                setVisita(respuesta.data.dataUser.nombre) */
-                console.log(respuesta.data.dataUser);
                 setEmail(respuestaAdaptada.email)
                 setNombre(respuestaAdaptada.nombre)
                 setImagen(respuestaAdaptada.imagen)
@@ -37,9 +31,6 @@ const UserData = () => {
                 </div>
                 <p className="text">{nombre}</p>
             </div>
-           <section>Tu carrito
-            
-           </section>
         </section>
 
     )

@@ -11,18 +11,11 @@ const CarritoTotal = () => {
     useEffect(()=>{
         const obtenerCarrito = async () => {
             const resp = await getCarrito();
-            console.log(resp);
             if(resp.data.msj){
                 setMensaje(resp.data.msj);
             }
-            const respuestaAdaptada = createAdaptedCarrito(resp)
-            console.log("res");
-            console.log(respuestaAdaptada);
-            setCarrito(respuestaAdaptada)
-            console.log(carrito);
-            carrito.map(item => {
-                console.log(item);
-            })
+            const respuestaAdaptada = createAdaptedCarrito(resp);
+            setCarrito(respuestaAdaptada);
         }
         obtenerCarrito()
     },[]);

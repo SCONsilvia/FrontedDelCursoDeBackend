@@ -15,11 +15,8 @@ const ItemDetailContainer = () => {
         const funcion = async () => {
             const respuesta = await getProduct(productId);
             if (respuesta.status){
-                //console.log(`respuesta ${respuesta}`);
-                //console.log(respuesta.data.data);
                 const respuestaAdaptada = createAdaptedProductFromApi(respuesta.data.data);
-                setData(respuestaAdaptada)
-                console.log(respuestaAdaptada);
+                setData(respuestaAdaptada);
             }else{
                 setError(true)
             }

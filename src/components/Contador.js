@@ -11,7 +11,6 @@ const ItemCount = ({initial=1, stock, id}) => {
 
     const agregarAlCarrito = async (cantidad) => {
         const respuesta = await infoDeInicioDeSesion();
-        console.log(respuesta);
         if (respuesta.status == false) {
             alert("Tenes que loguearte antes")
         }else{

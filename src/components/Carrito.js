@@ -9,45 +9,46 @@ const Carrito = () => {
     const [carrito, setCarrito] = useState([]);
     const [mensaje, setMensaje] = useState([]);
     const [total, setTotal] = useState(0);
+    const [actualizar, setActualizar] = useState(true);
 
     const finalizarCompraFun = async () => {
         const resp = await finalizarCompra();
-        console.log("respuest");
-        console.log(resp);
+        //window.location.reload();
+        setActualizar(!actualizar);
+        setCarrito([]);
     }
 
     useEffect(()=>{
         const obtenerCarrito = async () => {
             const resp = await getCarrito();
-            console.log(resp);
             if(resp.data.msj){
                 setMensaje(resp.data.msj);
+                setCarrito([])
+                setTotal(0)
+            }else if(resp.data.data.productos.length == 0){
+                setMensaje("carrito vacio");
+                setCarrito([])
+                setTotal(0)
+            }else{
+                const respuestaAdaptada = createAdaptedCarrito(resp);
+                setCarrito(respuestaAdaptada);
+                let suma = 0;
+                respuestaAdaptada.map(item => {
+                    suma += (item.cantidad * item.precio);
+                })
+                setTotal(suma);
             }
-            const respuestaAdaptada = createAdaptedCarrito(resp)
-            console.log("res");
-            console.log(respuestaAdaptada);
-            setCarrito(respuestaAdaptada)
-            console.log(carrito);
-            let suma = 0
-            console.log("Buenos dias");
-            carrito.map(item => {
-                console.log("ho00ola");
-                setTotal(total + (item.cantidad * item.precio))
-                suma += (item.cantidad * item.precio)
-                console.log(suma);
-            })
-            
         }
-        obtenerCarrito()
-    },[]);
+        obtenerCarrito();
+    },[actualizar]);
     
     return(
         <section className="sectionCarrito">
             <h1>Carrito</h1>
             <div className="listCarrito">
-                {carrito.length > 0 ? carrito.map(item => <CarritoDetail  key={item.id} datos={item} />): <p>{mensaje}</p>}
-                <p>EL total es: {total}</p>
-                <button onClick={() => finalizarCompraFun()}>Finalizar compra</button>
+                {carrito.length > 0 ? carrito.map(item => <CarritoDetail  key={item.id} datos={item} actualizar={actualizar} setActualizar={setActualizar}/>): <p>{mensaje}</p>}
+                {total > 0 ? <><p>EL total es: {total}</p>
+                <button className="buttonCarrito" onClick={() => finalizarCompraFun()}>Finalizar compra</button></> : null}
             </div>
         </section>
     )

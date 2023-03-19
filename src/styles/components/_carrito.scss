@@ -1,0 +1,21 @@
+.listCarrito{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ItemCarrito{
+    border: 1px solid black;
+    width: 200px;
+    margin: 20px;
+    position: relative;
+}
+
+.XItemDelCarrito{
+    position: absolute;
+    right: 5px;
+}
+
+.buttonCarrito{
+    width: 200px;
+}

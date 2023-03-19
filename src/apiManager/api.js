@@ -12,7 +12,7 @@ const headers = (method="GET",body=undefined,contentType='application/json')=>{
 
 //http://localhost:8080
 //https://fantastic-paint-airport.glitch.me/
-const server = "http://localhost:8080"
+const server = "https://proyecto-coder-backend-production.up.railway.app/"
 
 export const allProducts = () => {
     const resp = {data:0,error:null,status:false}
@@ -98,6 +98,20 @@ export const finalizarCompra = () => {
     )
 }
 
+export const eliminarItemDelCarrito = (id) => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/carrito/`,headers("DELETE", id))
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
 export const nuevoUser = (data) => {
     const resp = {data:0,error:null,status:false}
     return (fetch(`${server}/api/login/nuevo`,headers("POST", data))
@@ -132,12 +146,8 @@ export const InicioDeSesionback = (datos) => {
         .then(async response => {
             resp.data = await response.json(); 
             resp.status=true
-            console.log(resp)
-            console.log(datos);
-            console.log(resp);
             return resp
         }).catch(error => {
-            console.log("dfdfdffdfddffddf")
             resp.error=error
             return resp
         })
@@ -153,7 +163,6 @@ export const infoDeInicioDeSesion = () => {
                 return resp
             }
             resp.status=true
-            console.log(resp);
             return resp
         }).catch(error => {
             resp.error=error

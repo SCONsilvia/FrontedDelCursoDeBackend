@@ -24,7 +24,6 @@ export const createAdaptedProductArr = (obj) => {
 }
 
 export const createAdaptedChatFromApi = (obj) => {
-    console.log(obj);
     const chatAdapted = {
         email : obj.user.email,
         mensaje : obj.mensaje,
@@ -80,8 +79,5 @@ export const createAdaptedCarritoObj = (obj) => {
 }
 
 export const createAdaptedCarrito = (obj) => {
-    console.log(obj.data.data.productos);
-    console.log("Yaaaa");
-    console.log(obj.data.data);
     return obj.data.data.productos.map(item =>createAdaptedCarritoObj(item));
 }
