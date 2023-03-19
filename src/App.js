@@ -5,6 +5,8 @@ import InicioDeSesion from './components/InicioDeSesion'
 import UserData from './components/UserData'
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import FormNewUser from './components/FormNewUser';
+import Carrito from './components/Carrito';
 
 function App() { 
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/inicioDeSesion" element={<InicioDeSesion/>}/>
           <Route path="/User" element={<UserData/>}/>
           <Route path="/detail/:productId" element={<ItemDetailContainer/>}/>
+          <Route path="/newLogin" element={<FormNewUser/>}/>
+          <Route path="/carrito" element={<Carrito/>}/>
         </Routes>
       </BrowserRouter>
     </div>

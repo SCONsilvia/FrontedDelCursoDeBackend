@@ -1,7 +1,7 @@
 export const createAdaptedProductFromApi = (obj) => {
 
     const productAdapted = {
-        id: obj._id,
+        id: obj.id,
         name : obj.nombre,
         img : obj.foto,
         price: obj.precio,
@@ -24,11 +24,11 @@ export const createAdaptedProductArr = (obj) => {
 }
 
 export const createAdaptedChatFromApi = (obj) => {
+    console.log(obj);
     const chatAdapted = {
-        id : obj.id,
-        email : obj.email,
+        email : obj.user.email,
         mensaje : obj.mensaje,
-        fecha: obj.fecha
+        fecha: obj.timestamps
     }
 
     if ("clase" in obj){
@@ -63,4 +63,25 @@ export const createAdaptedUserFromApi = (obj) => {
 
 export const createAdaptedUser = (obj) => {
     return createAdaptedUserFromApi(obj);
+}
+
+export const createAdaptedCarritoObj = (obj) => {
+
+    const productAdapted = {
+        id : obj.id,
+        nombre: obj.nombre,
+        precio : obj.precio,
+        img : obj.foto,
+        stock: obj.stock,
+        cantidad: obj.cantidad
+    }
+
+    return productAdapted;
+}
+
+export const createAdaptedCarrito = (obj) => {
+    console.log(obj.data.data.productos);
+    console.log("Yaaaa");
+    console.log(obj.data.data);
+    return obj.data.data.productos.map(item =>createAdaptedCarritoObj(item));
 }

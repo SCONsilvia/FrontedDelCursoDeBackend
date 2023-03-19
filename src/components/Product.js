@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 
 const Product = ({producto}) => {
+    console.log(producto);
     return(
         <Link to={`/detail/${producto.id}`}>
             <article className="unProducto">

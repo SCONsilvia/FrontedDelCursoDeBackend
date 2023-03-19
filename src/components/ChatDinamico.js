@@ -8,6 +8,7 @@ const ChatDinamico = ({Componente}) => {
     const [chatDinamicoMensajeUserParaArmaHtml, setChatDinamicoMensajeUserParaArmaHtml] = useState([]);
 
     useEffect(()=>{
+        console.log(chatDinamicoMensajeUser)
         const productoAdaptado = createAdaptedChatArr(chatDinamicoMensajeUser);
         setChatDinamicoMensajeUserParaArmaHtml(productoAdaptado)
     },[chatDinamicoMensajeUser]);

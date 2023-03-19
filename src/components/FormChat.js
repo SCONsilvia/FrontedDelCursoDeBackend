@@ -1,6 +1,7 @@
 import { WebsocketContext } from "../context/WebsocketContext";
 import { useContext, useRef } from "react";
 import { useEffect } from "react";
+import { infoDeInicioDeSesion } from "../apiManager/api";
 
 const ForChat = () => {
     const mensajeRef = useRef(null);
@@ -33,15 +34,34 @@ const ForChat = () => {
 
 
 
-    const handlerSubmit = (e) => {
+    const handlerSubmit = async (e) => {
         e.preventDefault();
-        const datosDelNuevoProducto = {
+        const respuesta = await infoDeInicioDeSesion();
+        console.log(respuesta);
+        if (respuesta.status == false) {
+            alert("Tenes que loguearte antes")
+        }else{
+            console.log(respuesta.data.session);
+            const datosDelNuevoProducto = {
+                user:{
+                    email: respuesta.data.session.email,
+                    id : respuesta.data.session.passport.user,
+                },
+                mensaje : document.getElementById("mensaje").value,
+                timestamps: new Date()
+            }
+            mandarMensaje(datosDelNuevoProducto);
+            console.log(datosDelNuevoProducto);
+    
+            document.getElementById("mensaje").value = "";
+        }
+        /* const datosDelNuevoProducto = {
             email : document.getElementById("email").value,
             mensaje : document.getElementById("mensaje").value
         }
         mandarMensaje(datosDelNuevoProducto);
 
-        document.getElementById("mensaje").value = "";
+        document.getElementById("mensaje").value = ""; */
     }
 
 
@@ -49,10 +69,6 @@ const ForChat = () => {
     return(
         <form id="chat-form" onSubmit={handlerSubmit}>
             <ul className="chat-form__ul">
-                <li className="chat-form__ul__li">
-                    <label className="chat-form__ul__li__label" htmlFor="email">Correo:</label>
-                    <input className="chat-form__ul__li__input" type="email" id="email" name="email" required />
-                </li>
                 <li className="chat-form__ul__li">
                     <textarea className="areaDeTexto" id="mensaje" ref={mensajeRef} required></textarea>
                 </li>

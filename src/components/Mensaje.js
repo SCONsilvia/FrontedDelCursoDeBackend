@@ -1,5 +1,6 @@
 
 const Mensaje = ({data, clase="unMensaje"}) => {
+    
     return( 
         <div className={clase}>
             <div className="datosDelMensaje">

@@ -9,6 +9,7 @@ const ChatList = () => {
     useEffect(()=>{
         const allChatAsync = async () =>{
             const respuesta = await allChat();
+            console.log(respuesta);
             if(respuesta.status){
                 const respuestaAdaptada = createAdaptedChatList(respuesta.data);
                 setChat(respuestaAdaptada);

@@ -8,7 +8,7 @@ import Chat from "./Chat";
 const Productos = () => {
     return(
         <>
-            <h1>Producs</h1>
+            <h1>Cosas</h1>
             <WebsocketContextProvide>
                 <FormNewProduct/>
                 <ProductoTabla/>

@@ -51,6 +51,14 @@ const FormNewProduct = () => {
                         <label className="form__ul__li__label" htmlFor="stock">stock:</label>
                         <input className="form__ul__li__input" type="number" id="stock" name="stock" required/>
                     </li>
+                    <li className="form__ul__li">
+                        <label className="form__ul__li__label" htmlFor="categoria">categoria:</label>
+                        <select name="select">
+                            <option value="value1">Value 1</option>
+                            <option value="value2" selected>Value 2</option>
+                            <option value="value3">Value 3</option>
+                        </select>
+                    </li>
                 </ul>
                 <input type="submit"/>
             </form>

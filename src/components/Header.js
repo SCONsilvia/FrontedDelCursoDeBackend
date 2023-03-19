@@ -8,7 +8,6 @@ const Header = () => {
         <header className="header">
             <h1>Eccomerce</h1>
             <Navbar />
-            <div>Carro</div>
             {/* {cart.length > 0 ? <Link to={"/cart"} ><CartWidget/></Link> : null} */}
         </header>
     )

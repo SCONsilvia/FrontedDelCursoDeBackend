@@ -56,6 +56,62 @@ export const postProducto = (producto) => {
     )
 }
 
+export const postCarrito = (producto) => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/carrito`,headers("POST", producto))
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
+export const getCarrito = () => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/carrito`,headers())
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
+export const finalizarCompra = () => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/carrito/finalizarCompra`,headers())
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
+export const nuevoUser = (data) => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/login/nuevo`,headers("POST", data))
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
 export const allChat = () => {
     const resp = {data:0,error:null,status:false}
     return (fetch(`${server}/api/chat`,headers())
