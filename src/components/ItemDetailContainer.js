@@ -1,7 +1,6 @@
 import ProductDetail from "./ProductDetail";
 import { getProduct } from "../apiManager/api";
 import { useParams } from "react-router-dom";
-import { useAsync } from "../hooks/useAsync";
 import { useState, useEffect } from "react";
 import { createAdaptedProductFromApi } from "../adapter/adapter";
 
