@@ -4,7 +4,7 @@ const headers = (method="GET",body=undefined,contentType='application/json')=>{
         body: body ? JSON.stringify(body):body,
         credentials: "include",//cooki esta linea habilita las coockies con fetch (la de abajo tambien)
         headers: {
-        'Access-Control-Allow-Origin': 'fronteddelcursodebackend-production.up.railway.app',// (cooki) aqui va la ruta del origen donde esta montada la pagina web
+        'Access-Control-Allow-Origin': process.env.ORIGIN || "http://localhost:3000",// (cooki) aqui va la ruta del origen donde esta montada la pagina web
         'Content-Type': contentType,
       }
     }
@@ -12,7 +12,7 @@ const headers = (method="GET",body=undefined,contentType='application/json')=>{
 
 //http://localhost:8080
 //https://fantastic-paint-airport.glitch.me/
-const server = "https://proyecto-coder-backend-production.up.railway.app"
+const server = process.env.SERVER || "http://localhost:8080"
 
 export const allProducts = () => {
     const resp = {data:0,error:null,status:false}
