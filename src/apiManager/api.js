@@ -4,7 +4,7 @@ const headers = (method="GET",body=undefined,contentType='application/json')=>{
         body: body ? JSON.stringify(body):body,
         credentials: "include",//cooki esta linea habilita las coockies con fetch (la de abajo tambien)
         headers: {
-        //'Access-Control-Allow-Origin': 'localhost:3000',// (cooki) aqui va la ruta del origen donde esta montada la pagina web
+        'Access-Control-Allow-Origin': 'fronteddelcursodebackend-production.up.railway.app',// (cooki) aqui va la ruta del origen donde esta montada la pagina web
         'Content-Type': contentType,
       }
     }
