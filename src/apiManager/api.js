@@ -202,7 +202,6 @@ export const InicioDeSesionback = (datos) => {
         .then(async response => {
             resp.data = await response.json(); 
             resp.status=true
-            console.log(resp);
             return resp
         }).catch(error => {
             resp.error=error
@@ -213,11 +212,9 @@ export const InicioDeSesionback = (datos) => {
 
 export const infoDeInicioDeSesion = () => {
     const resp = {data:0,error:null,status:false}
-    console.log("POST");
     return (fetch(`${server}/api/login`,headers())
         .then(async response => {
             resp.data = await response.json(); 
-            console.log(resp);
             if (response.status === 401){
                 return resp
             }

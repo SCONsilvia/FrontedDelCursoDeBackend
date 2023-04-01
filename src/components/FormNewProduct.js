@@ -7,7 +7,6 @@ const FormNewProduct = () => {
     const {crearNuevoProducto} = useContext(WebsocketContext);
     const handlerSubmit = (e) => {
         e.preventDefault();
-        console.log(document.getElementById("categoria").value)
         const datosDelNuevoProducto = {
             nombre : document.getElementById("titulo").value,
             precio : document.getElementById("precio").value,

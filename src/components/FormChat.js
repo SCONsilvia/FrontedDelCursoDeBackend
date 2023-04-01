@@ -21,7 +21,6 @@ const ForChat = () => {
                 presionado=false
             }
             if(!presionado && (e.code === "Enter" || e.code === "NumpadEnter") && cajaMensaje.value.trim()!== ""){
-                console.log("aqui",cajaMensaje.value.trim(),"denuevo")
                 document.getElementById("buttonSubmit").click();
             }
             if (presionado && (e.code === "Enter" || e.code === "NumpadEnter")){
