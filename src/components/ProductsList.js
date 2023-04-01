@@ -1,18 +1,18 @@
 
-import { allProducts } from "../apiManager/api";
+import { allProducts,getProductsByCategoryId } from "../apiManager/api";
 import { useEffect, useState } from 'react';
 import { createAdaptedProductList } from "../adapter/adapter";
 
 import ProductListDinamico from "./ProductListDinamico";
 
-const ProductsList = ({Componente, nombreDelComponente}) => {
+const ProductsList = ({Componente, nombreDelComponente, categoryId}) => {
     const [productos, setProductos] = useState([]);
     const [mensaje, setMensaje] = useState("");
 
     useEffect(()=>{
-        const allProductsAsync = async () =>{
+        const allProductsAsync = async (getProducts) =>{
             setMensaje("cargando");
-            const respuesta = await allProducts();
+            const respuesta = await getProducts();
             if(respuesta.status){
                 const respuestaAdaptada = createAdaptedProductList(respuesta.data);
                 setProductos(respuestaAdaptada);
@@ -22,7 +22,12 @@ const ProductsList = ({Componente, nombreDelComponente}) => {
             }
             setMensaje("")
         }
-        allProductsAsync();
+        if (categoryId=="all"){
+            allProductsAsync(allProducts);
+        }else{
+            const f = () => getProductsByCategoryId(categoryId)
+            allProductsAsync(f);
+        }
     },[]);
     
     return(

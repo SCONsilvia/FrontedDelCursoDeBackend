@@ -9,11 +9,9 @@ const Productos = () => {
     return(
         <>
             <h1>Cosas</h1>
-            <WebsocketContextProvide>
                 <FormNewProduct/>
                 <ProductoTabla/>
-                <Chat/>
-            </WebsocketContextProvide>
+
         </>
     )
 }

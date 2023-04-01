@@ -1,10 +1,13 @@
 import { WebsocketContext } from "../context/WebsocketContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import { getAllCategorias } from "../apiManager/api";
+import { createAdaptedCategoriaList } from "../adapter/adapter";
 
 const FormNewProduct = () => {
     const {crearNuevoProducto} = useContext(WebsocketContext);
     const handlerSubmit = (e) => {
         e.preventDefault();
+        console.log(document.getElementById("categoria").value)
         const datosDelNuevoProducto = {
             nombre : document.getElementById("titulo").value,
             precio : document.getElementById("precio").value,
@@ -12,6 +15,7 @@ const FormNewProduct = () => {
             descripcion : document.getElementById("descripcion").value,
             codigo : document.getElementById("codigo").value,
             stock : document.getElementById("stock").value,
+            categoryId : document.getElementById("categoria").value,
         }
         crearNuevoProducto(datosDelNuevoProducto);
 
@@ -22,6 +26,28 @@ const FormNewProduct = () => {
         document.getElementById("codigo").value = "";
         document.getElementById("stock").value = "";
     }
+
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    useEffect(()=>{
+        setLoading(true);
+        const funcion = async () => {
+            const respuesta = await getAllCategorias();
+            if (respuesta.status){
+                const respuestaAdaptada = createAdaptedCategoriaList(respuesta.data);
+                setData(respuestaAdaptada);
+            }else{
+                setError(true)
+            }
+            setLoading(false);
+        }
+        funcion();
+        
+    },[])
+
+
+
     return(
         <section className="FormNewProduct__sectionForm">
             <h2 className="titleH1">Agregar producto</h2>
@@ -53,10 +79,8 @@ const FormNewProduct = () => {
                     </li>
                     <li className="form__ul__li">
                         <label className="form__ul__li__label" htmlFor="categoria">categoria:</label>
-                        <select name="select">
-                            <option value="value1">Value 1</option>
-                            <option value="value2" selected>Value 2</option>
-                            <option value="value3">Value 3</option>
+                        <select id="categoria" name="categoria">
+                        {data.length > 0 ? data.map(item => <option value={item.id}>{item.name}</option> ): null}
                         </select>
                     </li>
                 </ul>

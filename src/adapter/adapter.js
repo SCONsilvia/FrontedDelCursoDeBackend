@@ -23,6 +23,21 @@ export const createAdaptedProductArr = (obj) => {
     return obj.map(item =>createAdaptedProductFromApi(item));
 }
 
+export const createAdaptedCategoriaFromApi = (obj) => {
+
+    const categoriaAdapted = {
+        id: obj._id,
+        name : obj.nombre,
+        description : obj.descripcion,
+    }
+
+    return categoriaAdapted;
+}
+
+export const createAdaptedCategoriaList = (obj) => {
+    return obj.data.map(item =>createAdaptedCategoriaFromApi(item));
+}
+
 export const createAdaptedChatFromApi = (obj) => {
     const chatAdapted = {
         email : obj.user.email,

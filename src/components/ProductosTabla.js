@@ -15,7 +15,7 @@ const ProductoTabla = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <ProductsList Componente={ProductoTablaItem} nombreDelComponente = "ProductoTablaItem"/>
+                    <ProductsList Componente={ProductoTablaItem} nombreDelComponente = "ProductoTablaItem" categoryId="all"/>
                 </tbody>
             </table>
         </section>

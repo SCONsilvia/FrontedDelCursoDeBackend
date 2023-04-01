@@ -28,6 +28,20 @@ export const allProducts = () => {
     )
 }
 
+export const getProductsByCategoryId = (categoryId) => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/productos/categoria/${categoryId}`,headers())
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
 export const getProduct = (id) => {
     const resp = {data:0,error:null,status:false}
     return (fetch(`${server}/api/productos/${id}`,headers())
@@ -45,6 +59,48 @@ export const getProduct = (id) => {
 export const postProducto = (producto) => {
     const resp = {data:0,error:null,status:false}
     return (fetch(`${server}/api/productos`,headers("POST", producto))
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
+export const getAllCategorias = () => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/categoria`,headers())
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
+export const getCategoria = (id) => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/categoria/${id}`,headers())
+        .then(async response => {
+            resp.status=true
+            resp.data = await response.json(); 
+            return resp
+        }).catch(error => {
+            resp.error=error
+            return resp
+        })
+    )
+}
+
+export const postCategoria = (categoria) => {
+    const resp = {data:0,error:null,status:false}
+    return (fetch(`${server}/api/categoria`,headers("POST", categoria))
         .then(async response => {
             resp.status=true
             resp.data = await response.json(); 
