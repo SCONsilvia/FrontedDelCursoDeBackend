@@ -21,6 +21,7 @@ const ForChat = () => {
                 presionado=false
             }
             if(!presionado && (e.code === "Enter" || e.code === "NumpadEnter") && cajaMensaje.value.trim()!== ""){
+                console.log("aqui",cajaMensaje.value.trim(),"denuevo")
                 document.getElementById("buttonSubmit").click();
             }
             if (presionado && (e.code === "Enter" || e.code === "NumpadEnter")){
@@ -40,17 +41,20 @@ const ForChat = () => {
         if (respuesta.status == false) {
             alert("Tenes que loguearte antes")
         }else{
-            const datosDelNuevoProducto = {
-                user:{
-                    email: respuesta.data.session.email,
-                    id : respuesta.data.session.passport.user,
-                },
-                mensaje : document.getElementById("mensaje").value,
-                timestamps: new Date()
+            if (document.getElementById("mensaje").value.trim()!==""){
+                const datosDelNuevoProducto = {
+                    user:{
+                        email: respuesta.data.session.email,
+                        id : respuesta.data.session.passport.user,
+                    },
+                    mensaje : document.getElementById("mensaje").value,
+                    timestamps: new Date()
+                }
+                mandarMensaje(datosDelNuevoProducto);
+        
             }
-            mandarMensaje(datosDelNuevoProducto);
-    
-            document.getElementById("mensaje").value = "";
+            document.getElementById("mensaje").value = ""
+           
         }
         /* const datosDelNuevoProducto = {
             email : document.getElementById("email").value,
