@@ -1,8 +1,6 @@
 
 import ProductoTabla from "./ProductosTabla";
 import FormNewProduct from "./FormNewProduct";
-import { WebsocketContextProvide } from "../context/WebsocketContext";
-import Chat from "./Chat";
 
 
 const Productos = () => {

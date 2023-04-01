@@ -14,7 +14,9 @@ const FormNewProduct = () => {
             descripcion : document.getElementById("descripcion").value,
             codigo : document.getElementById("codigo").value,
             stock : document.getElementById("stock").value,
-            categoryId : document.getElementById("categoria").value,
+        }
+        if (document.getElementById("categoria").value!==""){
+            datosDelNuevoProducto.categoryId = document.getElementById("categoria").value
         }
         crearNuevoProducto(datosDelNuevoProducto);
 
@@ -79,6 +81,7 @@ const FormNewProduct = () => {
                     <li className="form__ul__li">
                         <label className="form__ul__li__label" htmlFor="categoria">categoria:</label>
                         <select id="categoria" name="categoria">
+                            <option value="">Sin Categoria</option>
                         {data.length > 0 ? data.map(item => <option value={item.id}>{item.name}</option> ): null}
                         </select>
                     </li>
